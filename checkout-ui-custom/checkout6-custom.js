@@ -1,6 +1,6 @@
 // WARNING: THE USAGE OF CUSTOM SCRIPTS IS NOT SUPPORTED. VTEX IS NOT LIABLE FOR ANY DAMAGES THIS MAY CAUSE. THIS MAY BREAK YOUR STORE AND STOP SALES. IN CASE OF ERRORS, PLEASE DELETE THE CONTENT OF THIS SCRIPT.
 var userIdOnPersonalInfo = {
-    init: function init() {
+  init: function init() {
       vtexjs.checkout.getOrderForm().then(function (data) {
         var userId = data.userProfileId;
         $.ajax({
@@ -53,10 +53,11 @@ var userIdOnPersonalInfo = {
   };
   
     
-  var disablePersonalInfoEditButton = {
-    init: function init() {
-      util.waitElement($('#edit-profile-data'), function () {
-        $('#edit-profile-data').remove();
+var disablePersonalInfoEditButton = {
+  init: function init() {
+    util.waitElement($('#edit-profile-data'), function () {
+      $('.accordion-toggle.collapsed .link-box-edit.btn.btn-small').remove();
+        //$('#edit-profile-data').remove();
         $("#is-not-me").remove();
       });
     }
@@ -224,18 +225,8 @@ var userIdOnPersonalInfo = {
   });
   
   
-  $(document).ready(function () {
+$(document).ready(function () {
     poNumberFeature.init();
     disablePersonalInfoEditButton.init();
     //userIdOnPersonalInfo.init();
   });
-  
-  /*
-  // WARNING: THE USAGE OF CUSTOM SCRIPTS IS NOT SUPPORTED. VTEX IS NOT LIABLE FOR ANY DAMAGES THIS MAY CAUSE. THIS MAY BREAK YOUR STORE AND STOP SALES. IN CASE OF ERRORS, PLEASE DELETE THE CONTENT OF THIS SCRIPT.
-  $(document).ready(function() {
-    removeShipChanges();
-    
-    $(window).on("orderFormUpdated.vtex", function(evt, orderForm) {
-      removeShipChanges();
-    });
-  });*/
