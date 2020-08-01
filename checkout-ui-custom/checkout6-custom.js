@@ -226,8 +226,8 @@ var userIdOnPersonalInfo = {
   
   $(document).ready(function () {
     poNumberFeature.init();
-    userIdOnPersonalInfo.init();
     disablePersonalInfoEditButton.init();
+    //userIdOnPersonalInfo.init();
   });
   
   /*
